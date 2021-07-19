@@ -29,9 +29,9 @@ public class SpringbootAwsS3Application {
 	}
 
 	@Scheduled(cron = "${herokuNotIdle.cronExpression}")
-	public void herokuNotIdle(RestTemplate restTemplate) {
+	public void herokuNotIdle() {
 		System.out.println(" INIT - Heroku not idle execution ");
-		ResponseEntity<String> response = restTemplate.exchange(herokuNotIdle_url, HttpMethod.GET, null, String.class);
+		ResponseEntity<String> response = restTemplate().exchange(herokuNotIdle_url, HttpMethod.GET, null, String.class);
 		System.out.println(response);
 		System.out.println(" FINISH - Heroku not idle execution");
 	}
