@@ -19,6 +19,11 @@ public class S3BucketStorageController {
     @Autowired
     S3BucketStorageService service;
 
+	@RequestMapping("/help")
+	public String help() {
+		return "AWS S3 Service v1.0";
+	}
+	
     @GetMapping("/list/files")
     public ResponseEntity<List<String>> getListOfFiles() {
         return new ResponseEntity<>(service.listFiles(), HttpStatus.OK);
